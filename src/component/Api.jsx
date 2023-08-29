@@ -4,6 +4,7 @@ import {BsSearch} from 'react-icons/bs'
 
 
 
+
 // <audio className='mx-auto' controls>
 // <source src={detail[0].phonetics[0].audio}></source>
 // </audio>
@@ -33,6 +34,11 @@ const Api = () => {
             
         })
     }
+
+
+
+        
+
     return (
         <>
         <div className='flex justify-center mt-5'>
