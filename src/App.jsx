@@ -1,10 +1,15 @@
-import { useEffect } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './component/Navbar'
 
 
+export const AppContext = createContext("")
+
 function App() {
- 
+  const [font, setFont] = useState("Serif")
+  const [theme, setTheme] = useState("light")
+  
+  
   useEffect(()=>{
     if ('serviceworker' in navigator) {
         window.addEventListener('load', ()=>{
@@ -20,9 +25,13 @@ function App() {
 }, [])
 
   return (
-    <>
-    <Navbar/>
-    </>
+    
+    <AppContext.Provider value={{font, setFont, theme, setTheme}}>
+      <div className={`${font === "Serif" ? "font-[Serif]" : font === "Montserrat" ? "font-[Montserrat]" : font === "Poppins" ? "font-[Poppins]" : font ===  "Noto Serif" ? "font-[Noto Serif]" : font === "Caprasimo" ? "font-[Caprasimo]" : font === "Calligraffitti" ? "font-[Calligraffitti]" : "font-[Calistoga]" }`}>    
+      <Navbar />
+      </div>
+    </AppContext.Provider>
+    
   )
 }
 

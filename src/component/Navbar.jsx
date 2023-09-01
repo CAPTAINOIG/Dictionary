@@ -1,41 +1,51 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Api from './Api'
-import {TfiBook} from 'react-icons/tfi'
-import {BsFillSuitSpadeFill} from 'react-icons/bs'
-import {BiMoon} from 'react-icons/bi'
-import {BsSun} from 'react-icons/bs'
+import { BiBookAlt } from 'react-icons/bi'
+import { BiMoon } from 'react-icons/bi'
+
+
+import { AppContext } from '../App'
+
+
 
 
 
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("")
+  const {setFont} = useContext(AppContext)
+  const {setTheme} = useContext(AppContext)
 
-  
+
+
+  // {`${font === "Serif" ? "font-[Serif]" : "Montserrat" ? "font-[Montserrat]" : "Poppins" ? "font-[Poppins]" }`}
+// console.log(font);
 
 
   return (
     <>
-    <section id='body' className='bg-black'>
-    <div className='flex justify-between'>
-    <div className='text-red-100'>
-      <TfiBook/></div>
-    <div className='text-white'>ENGLISH</div>
-    <div className='text-gray-100'><BsFillSuitSpadeFill/></div>
-    <div className='text-red-500 '>DICTIONARY</div>
-    <div className='text-red-100' onClick={()=>setTheme("light")}>
-      <BiMoon/>
-    </div>
+      <section id='body'>
+        <div className='flex'>
+          <div className='text-red-100 mt-5' id='red'>
+            <BiBookAlt /></div>
 
-    <div className='text-red-100' onClick={()=>setTheme("dark")}>
-      <BsSun/>
-    </div>
-    </div>
+          <select id='redd' className='w-30 mt-5' onChange={(e) => setFont(e.target.value)}>
+            <option value= "Serif">Serif</option>
+            <option value= "Montserrat">Montserrat</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Noto Serif">Noto Serif</option>
+            <option value="Caprasimo">Caprasimo</option>
+            <option value="Calligraffitti">Calligraffitti</option>
+            <option value="Calistoga">Calistoga</option>
+          </select>
+          <div className='text-red-100 ms-2 mt-5'>
+          <button onClick={() => setTheme("light")}><BiMoon /></button> 
+          </div>
+        </div>
 
-    
-    
-    <Api/>
-    </section>
+
+
+        <Api />
+      </section>
     </>
   )
 }
