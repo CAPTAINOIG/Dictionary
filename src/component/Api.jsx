@@ -40,7 +40,7 @@ const Api = () => {
     return (
         <>
         
-        <div className='flex justify-center items-center bg-green-100 gap-20 px-5 rounded mx-auto mt-5' id='input'>
+        <div className='flex justify-center items-center bg-green-100 gap-10 px-5 rounded mx-auto mt-5' id='input'>
         <input className='bg-transparent w-96' type="text" placeholder='keyword' onChange={(e) => setInfo(e.target.value)} value={info} />
                 <BsSearch onClick={get} className='text-purple-500 dark:text-red-500 cursor-pointer' id='butto' />
             </div>
