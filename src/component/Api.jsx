@@ -69,7 +69,7 @@ const Api = () => {
                         </ul>
 
                         <h1 className='text-white-500'> Part Of Speech: {detail[0].meanings[0].partOfSpeech}</h1>
-                        <h1 className='text-white-500 mx-auto' id='p'> Synonyms: {detail[0].meanings[0].synonyms.map((item, index)=> (
+                        <h1 className='text-white-500 mx-auto dark:bg-black dark:text-white' id='p'> Synonyms: {detail[0].meanings[0].synonyms.map((item, index)=> (
                             <span key={index}>{item}, </span>
                         ))}
                         </h1>
