@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import Api from './Api'
 import { BiBookAlt } from 'react-icons/bi'
 import { BiMoon } from 'react-icons/bi'
-
+import {BsSun} from 'react-icons/bs'
 
 import { AppContext } from '../App'
 
@@ -12,10 +12,10 @@ import { AppContext } from '../App'
 
 
 const Navbar = () => {
-  const {setFont} = useContext(AppContext)
-  const {setTheme} = useContext(AppContext)
+  const {setFont, setTheme, theme} = useContext(AppContext)
+  
 
-
+console.log(theme);
 
   // {`${font === "Serif" ? "font-[Serif]" : "Montserrat" ? "font-[Montserrat]" : "Poppins" ? "font-[Poppins]" }`}
 // console.log(font);
@@ -23,12 +23,12 @@ const Navbar = () => {
 
   return (
     <>
-      <section id='body'>
+      <section className=' h-screen dark:bg-black h-screen'>
         <div className='flex'>
-          <div className='text-red-100 mt-5' id='red'>
+          <div className='text-purple-500 dark:text-red-100 mt-5' id='red'>
             <BiBookAlt /></div>
 
-          <select id='redd' className='w-30 mt-5' onChange={(e) => setFont(e.target.value)}>
+          <select id='redd' className='w-30 mt-5 text-purple-500 dark:text-red-500' onChange={(e) => setFont(e.target.value)}>
             <option value= "Serif">Serif</option>
             <option value= "Montserrat">Montserrat</option>
             <option value="Poppins">Poppins</option>
@@ -37,10 +37,14 @@ const Navbar = () => {
             <option value="Calligraffitti">Calligraffitti</option>
             <option value="Calistoga">Calistoga</option>
           </select>
-          <div className='text-red-100 ms-2 mt-5'>
-          <button onClick={() => setTheme("light")}><BiMoon /></button> 
+          <div className='text-red-100 ms-2 mt-5 text-purple-500 dark:text-red-100 cursor-pointer'>
+          {
+            theme === "dark" ? <BsSun onClick={()=> setTheme("light")}/> : <BiMoon onClick={() => setTheme("dark")} />
+          }
+          
+          
           </div>
-        </div>
+        </div> 
 
 
 
