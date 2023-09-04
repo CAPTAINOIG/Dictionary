@@ -23,7 +23,7 @@ console.log(theme);
 
   return (
     <>
-      <section className=' h-screen dark:bg-black h-screen'>
+      <section className='h-screen dark:bg-black dark:h-screen' id='sect'>
         <div className='flex'>
           <div className='text-purple-500 dark:text-red-100 mt-5' id='red'>
             <BiBookAlt /></div>
@@ -39,7 +39,7 @@ console.log(theme);
           </select>
           <div className='text-red-100 ms-2 mt-5 text-purple-500 dark:text-red-100 cursor-pointer'>
           {
-            theme === "dark" ? <BsSun onClick={()=> setTheme("light")}/> : <BiMoon onClick={() => setTheme("dark")} />
+            theme === "dark" ? <BsSun onClick={()=> setTheme("light")}/> : <BiMoon className='text-purple-500' onClick={() => setTheme("dark")} />
           }
           
           

@@ -53,8 +53,8 @@ const Api = () => {
             {
                 detail &&
                 <>
-                    <div className='text-center dark:text-red-200 pt-5'>
-                        <h1 className='text-white-500 text-4xl dark:text-yellow-300'><b> {detail[0].word}</b></h1>
+                    <div className='text-center dark:text-white pt-5'>
+                        <h1 className='text-white-500 text-4xl dark:text-white'><b> {detail[0].word}</b></h1>
                         <h1 className='text-white-500'><b> {detail[0].phonetic}</b></h1>
 
                         <hr />
@@ -62,7 +62,7 @@ const Api = () => {
                             {
                                 detail[0].meanings[0].definitions.map((item, index) => (
 
-                                    <p key={index} id='p' className='text-white-500 list-disc text-center mx-auto'>● {item.definition}</p>
+                                    <p key={index} id='p' className='text-white-900 list-disc text-center mx-auto'>● {item.definition}</p>
 
                                 ))
                             }
@@ -73,7 +73,7 @@ const Api = () => {
                             <span key={index}>{item}, </span>
                         ))}
                         </h1>
-                        <h1 className='text-white-500 mx-auto' id='p'> Antonyms: {detail[0].meanings[0].antonyms.map((item, index)=> (
+                        <h1 className='text-white-500 mx-auto dark:text-white dark:bg-black' id='p'> Antonyms: {detail[0].meanings[0].antonyms.map((item, index)=> (
                             <span key={index}>{item}, </span>
                         ))}
                         </h1>
