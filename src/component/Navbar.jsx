@@ -15,7 +15,7 @@ const Navbar = () => {
   const {setFont, setTheme, theme} = useContext(AppContext)
   
 
-console.log(theme);
+// console.log(theme);
 
   // {`${font === "Serif" ? "font-[Serif]" : "Montserrat" ? "font-[Montserrat]" : "Poppins" ? "font-[Poppins]" }`}
 // console.log(font);
@@ -26,7 +26,8 @@ console.log(theme);
       <section className='h-screen dark:bg-black dark:h-screen' id='sect'>
         <div className='flex'>
           <div className='text-purple-500 dark:text-red-100 mt-5' id='red'>
-            <BiBookAlt /></div>
+            <BiBookAlt />
+          </div>
 
           <select id='redd' className='w-30 mt-5 text-purple-500 dark:text-red-500' onChange={(e) => setFont(e.target.value)}>
             <option value= "Serif">Serif</option>

@@ -41,14 +41,14 @@ const Api = () => {
         <>
         
         <div className='flex justify-center items-center bg-green-100 gap-10 px-5 rounded mx-auto mt-5' id='input'>
-        <input className='bg-transparent w-96' type="text" placeholder='keyword' onChange={(e) => setInfo(e.target.value)} value={info} />
+        <input className='bg-transparent w-96 outline-none' type="text" placeholder='keyword...' onChange={(e) => setInfo(e.target.value)} value={info} />
                 <BsSearch onClick={get} className='text-purple-500 dark:text-red-500 cursor-pointer' id='butto' />
             </div>
             <div className='text-purple-500 dark:text-red-500 text-center mt-5'>
             
             {message}
             </div>
-            
+             
 
             {
                 detail &&
@@ -76,7 +76,7 @@ const Api = () => {
                         <h1 className='text-white-500 mx-auto dark:text-white dark:bg-black' id='p'> Antonyms: {detail[0].meanings[0].antonyms.map((item, index)=> (
                             <span key={index}>{item}, </span>
                         ))}
-                        </h1>
+                        </h1> 
                         </div>
                         
                         
