@@ -16,14 +16,20 @@ const Api = () => {
 
     let endpoint = `https://api.dictionaryapi.dev/api/v2/entries/en/${info}`
 
-    const get = () => {
-        axios.get(endpoint)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(info === ""){
+            setMessage("Input cannot be empty")
+            setDetail("")
+        } else{
+            axios.get(endpoint)
             .then((response) => {  
                 console.log(response.data);
                 setDetail(response.data)
                 setMessage("")
                 setInfo("")
 
+                
             })
             .catch((err) => {
                 console.log(err);
@@ -32,22 +38,24 @@ const Api = () => {
                 setDetail("")
                 setInfo("")
                 
-
+                
             })
+        }
     }
 
 
     return (
         <>
-        
+        <form onSubmit={handleSubmit}>
         <div className='flex justify-center items-center bg-green-100 gap-10 px-5 rounded mx-auto mt-5' id='input'>
         <input className='bg-transparent w-96 outline-none' type="text" placeholder='keyword...' onChange={(e) => setInfo(e.target.value)} value={info} />
-                <BsSearch onClick={get} className='text-purple-500 dark:text-red-500 cursor-pointer' id='butto' />
+                <button type='submit' className='text-purple-500 dark:text-red-500 cursor-pointer'   id='butto'><BsSearch /></button>
             </div>
             <div className='text-purple-500 dark:text-red-500 text-center mt-5'>
             
             {message}
             </div>
+        </form>
              
 
             {
@@ -56,7 +64,7 @@ const Api = () => {
                     <div className='text-center dark:text-white pt-5'>
                         <h1 className='text-white-500 text-4xl dark:text-white'><b> {detail[0].word}</b></h1>
                         <h1 className='text-white-500'><b> {detail[0].phonetic}</b></h1>
-
+                        
                         <hr />
                         <ul>
                             {
