@@ -11,7 +11,9 @@ function App() {
   
   
   useEffect(()=>{
-    if ('serviceworker' in navigator) {
+   if(theme ==="dark"){
+      document.documentElement.classList.add("dark")
+    } else if ('serviceworker' in navigator) {
         window.addEventListener('load', ()=>{
             navigator.serviceWorker.register('/SW.js')
             .then(registration => {
@@ -22,9 +24,7 @@ function App() {
             })
         })
     }
-          if(theme ==="dark"){
-            document.documentElement.classList.add("dark")
-          } else{
+         else{
             document.documentElement.classList.remove("dark")
           }
 }, [theme])
@@ -34,7 +34,7 @@ function App() {
     <AppContext.Provider value={{font, setFont, theme, setTheme}}>
       <div className={`${font === "Serif" ? "font-[Serif]" : font === "Montserrat" ? "font-[Montserrat]" : font === "Poppins" ? "font-[Poppins]" : font ===  "Noto Serif" ? "font-[Noto Serif]" : font === "Caprasimo" ? "font-[Caprasimo]" : font === "Calligraffitti" ? "font-[Calligraffitti]" : "font-[Calistoga]" }`}>    
       <Navbar />
-      </div>
+      </div> 
     </AppContext.Provider>
     
   )

@@ -3,8 +3,8 @@
     "short_name": "Dictionary-App",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#ffff00",
-    "theme_color": "#0000ff",
+    "background_color": "#fff",
+    "theme_color": "#333333",
     "icons": [
         {
             "src": "vite.svg",
