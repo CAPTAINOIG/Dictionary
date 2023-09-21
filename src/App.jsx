@@ -32,7 +32,7 @@ function App() {
   return (
     
     <AppContext.Provider value={{font, setFont, theme, setTheme}}>
-      <div className={`${font === "Serif" ? "font-[Serif]" : font === "Montserrat" ? "font-[Montserrat]" : font === "Poppins" ? "font-[Poppins]" : font ===  "Noto Serif" ? "font-[Noto Serif]" : font === "Caprasimo" ? "font-[Caprasimo]" : font === "Calligraffitti" ? "font-[Calligraffitti]" : "font-[Calistoga]" }`}>    
+      <div className={ ` dark:bg-black ${font === "Serif" ? "font-[Serif]" : font === "Montserrat" ? "font-[Montserrat]" : font === "Poppins" ? "font-[Poppins]" : font ===  "Noto Serif" ? "font-[Noto Serif]" : font === "Caprasimo" ? "font-[Caprasimo]" : font === "Calligraffitti" ? "font-[Calligraffitti]" : "font-[Calistoga]" }`}>    
       <Navbar />
       </div> 
     </AppContext.Provider>
